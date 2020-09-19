@@ -36,9 +36,10 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnimeCell", for: indexPath) as! AnimeTableViewCell
 
         // Configure the cell...
-        cell.listTitleOutlet.text = bigList()[0].title
-        cell.listYearOutlet.text = String(bigList()[0].year)
-        if let urlString = URL(string: bigList()[0].posterPath) {
+        let animeItem = indexPath.row
+        cell.listTitleOutlet.text = bigList()[animeItem].title
+        cell.listYearOutlet.text = String(bigList()[animeItem].year)
+        if let urlString = URL(string: bigList()[animeItem].posterPath) {
             cell.listImageOutlet.load(url:urlString)
         }
         //cell.listGenreOutlet.text = bigList()[0].type
