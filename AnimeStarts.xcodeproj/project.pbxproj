@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A203C0952515ABEC005AEFB3 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A203C0942515ABEC005AEFB3 /* TableViewController.swift */; };
+		A203C0972515BC1A005AEFB3 /* AnimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A203C0962515BC1A005AEFB3 /* AnimeTableViewCell.swift */; };
 		A21A6E71250FA6BC00931BEE /* AnimeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21A6E70250FA6BC00931BEE /* AnimeRequest.swift */; };
 		A21A6E73250FAF8900931BEE /* AnimeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21A6E72250FAF8900931BEE /* AnimeCollection.swift */; };
 		A21A6E75250FB3AA00931BEE /* AnimeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21A6E74250FB3AA00931BEE /* AnimeAPI.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		A203C0942515ABEC005AEFB3 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		A203C0962515BC1A005AEFB3 /* AnimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeTableViewCell.swift; sourceTree = "<group>"; };
 		A21A6E70250FA6BC00931BEE /* AnimeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeRequest.swift; sourceTree = "<group>"; };
 		A21A6E72250FAF8900931BEE /* AnimeCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCollection.swift; sourceTree = "<group>"; };
 		A21A6E74250FB3AA00931BEE /* AnimeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeAPI.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				A2233A3E24D871F100C8BFDD /* SceneDelegate.swift */,
 				A2233A4024D871F100C8BFDD /* ViewController.swift */,
 				A203C0942515ABEC005AEFB3 /* TableViewController.swift */,
+				A203C0962515BC1A005AEFB3 /* AnimeTableViewCell.swift */,
 				A2233A4224D871F100C8BFDD /* Main.storyboard */,
 				A2233A4524D871F200C8BFDD /* Assets.xcassets */,
 				A2233A4724D871F200C8BFDD /* LaunchScreen.storyboard */,
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A203C0972515BC1A005AEFB3 /* AnimeTableViewCell.swift in Sources */,
 				A21A6E71250FA6BC00931BEE /* AnimeRequest.swift in Sources */,
 				A203C0952515ABEC005AEFB3 /* TableViewController.swift in Sources */,
 				A2233A4124D871F100C8BFDD /* ViewController.swift in Sources */,

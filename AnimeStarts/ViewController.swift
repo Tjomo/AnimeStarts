@@ -51,6 +51,7 @@ class ViewController: UIViewController {
         }
         
         navigationController?.navigationBar.barTintColor = UIColor.yellow
+
         if let urlString = URL(string: listAnime[listAnimeItem].posterPath) {
          imageOutlet.load(url:urlString)
        }

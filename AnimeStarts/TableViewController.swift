@@ -17,33 +17,35 @@ class TableViewController: UITableViewController {
     }
 
         //OUTLETS
+
+    
+    
+    
     
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
         
-        return 0
+        return bigList().count
     }
 
-
-    
-    
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AnimeCell", for: indexPath) as! AnimeTableViewCell
 
         // Configure the cell...
+        cell.listTitleOutlet.text = bigList()[0].title
+        cell.listYearOutlet.text = String(bigList()[0].year)
+        if let urlString = URL(string: bigList()[0].posterPath) {
+            cell.listImageOutlet.load(url:urlString)
+        }
+        //cell.listGenreOutlet.text = bigList()[0].type
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
