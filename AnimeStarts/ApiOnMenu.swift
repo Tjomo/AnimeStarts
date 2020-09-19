@@ -14,7 +14,9 @@ struct Anime: Decodable {
     let overview: String
 }
 
-
+struct AnimePoster:Decodable {
+    
+}
 
 
 
