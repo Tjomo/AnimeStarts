@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var listAnimeItem:Int = 0
+
 
 
     
@@ -25,48 +27,91 @@ class ViewController: UIViewController {
     @IBOutlet weak var nextAnimeOutlet: UIBarButtonItem!
     
     @IBOutlet weak var previousAnimeOutlet: UIBarButtonItem!
-    
-    var listAnime = [Anime]()
-    var listAnimeItem = 0
-    
-    
-    
-    
     @IBOutlet weak var uiBarOutlet: UINavigationItem!
+    
+//BUTTONS DO THINGS
+    
+    
+    
+    func REFRESHU() {
+        //make sure no crash
+        if listAnimeItem > (AnimeController.sharedController.animes.count - 1)  {
+            listAnimeItem = 0
+        }
+        if listAnimeItem < 0  {
+            listAnimeItem = AnimeController.sharedController.animes.count - 1
+        }
+        
+        
+            //reload data
+             if let urlString = URL(string: AnimeController.sharedController.animes[listAnimeItem].posterPath) {
+              imageOutlet.load(url:urlString)
+            }
+            titleOutlet.text = AnimeController.sharedController.animes[listAnimeItem].title
+            yearOutlet.text = String(AnimeController.sharedController.animes[listAnimeItem].year)
+            uiBarOutlet.title = AnimeController.sharedController.animes[listAnimeItem].title
+            
+        
+    }
+    
+    
+    @IBAction func rightButtonCommit(_ sender: Any) {
+
+        
+        
+                listAnimeItem += 1
+
+        
+        
+        REFRESHU()
+    }
+    
+    
+    @IBAction func leftButtonCommit(_ sender: Any) {
+                listAnimeItem -= 1
+
+        
+        
+        REFRESHU()
+    }
+
+    
+    
+    
+    
+    
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        buildList()
         
-        listAnime = actionAnime
-        var animeID = listAnime[listAnimeItem].id
         
-        struct bigDumbApiImplimentation: Decodable{
-            let resourceURL:URL
-            let API_KEY = "5cab53b2bf9ec01d1123e0897a7d365f"
-            
-            
-        }
-        
-        navigationController?.navigationBar.barTintColor = UIColor.yellow
+navigationController?.navigationBar.barTintColor = UIColor.yellow
 
-        if let urlString = URL(string: listAnime[listAnimeItem].posterPath) {
+        if let urlString = URL(string: AnimeController.sharedController.animes[listAnimeItem].posterPath) {
          imageOutlet.load(url:urlString)
        }
         
         
         yearOutlet.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
-        titleOutlet.text = actionAnime[listAnimeItem].title
-        yearOutlet.text = String(actionAnime[listAnimeItem].year)
-        uiBarOutlet.title = actionAnime[listAnimeItem].title
+        titleOutlet.text = AnimeController.sharedController.animes[listAnimeItem].title
+        yearOutlet.text = String(AnimeController.sharedController.animes[listAnimeItem].year)
+        uiBarOutlet.title = AnimeController.sharedController.animes[listAnimeItem].title
 
         
         // Do any additional setup after loading the view.
     }
     
 
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 }

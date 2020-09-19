@@ -40,13 +40,13 @@
                                                             <fragment content="Release Year">
                                                                 <attributes>
                                                                     <color key="NSColor" red="1" green="0.93591099564880498" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                    <font key="NSFont" size="75" name="BodoniSvtyTwoSCITCTT-Book"/>
+                                                                    <font key="NSFont" size="58" name="BodoniSvtyTwoSCITCTT-Book"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
                                                         <nil key="highlightedColor"/>
                                                         <color key="shadowColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <size key="shadowOffset" width="0.0" height="-69"/>
+                                                        <size key="shadowOffset" width="0.0" height="-62"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
@@ -125,8 +125,16 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Reccomended Order" id="jcN-Sh-SmN" userLabel="Reccomended Order"/>
                     <navigationItem key="navigationItem" title="AnimeTitle" id="VjM-y5-kI7">
-                        <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="os2-xm-0e4"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="fastForward" id="75V-Es-bCB"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="os2-xm-0e4">
+                            <connections>
+                                <action selector="leftButtonCommit:" destination="aYc-ey-TyG" id="hGm-eW-FlT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="fastForward" id="75V-Es-bCB">
+                            <connections>
+                                <action selector="rightButtonCommit:" destination="aYc-ey-TyG" id="U2a-a7-BqB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="descriptionOutlet" destination="uhV-Lh-Lbl" id="hrj-ZV-f3U"/>

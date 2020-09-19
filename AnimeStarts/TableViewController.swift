@@ -9,43 +9,29 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        
     }
-
         //OUTLETS
-
-    
-    
-    
-    
     // MARK: - Table view data source
-
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        
-        
-        return bigList().count
+        return AnimeController.sharedController.animes.count
+//        return bigList().count
     }
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnimeCell", for: indexPath) as! AnimeTableViewCell
-
         // Configure the cell...
-        let animeItem = indexPath.row
-        cell.listTitleOutlet.text = bigList()[animeItem].title
-        cell.listYearOutlet.text = String(bigList()[animeItem].year)
-        if let urlString = URL(string: bigList()[animeItem].posterPath) {
+        let animeItem = AnimeController.sharedController.animes[indexPath.row]
+        cell.listTitleOutlet.text = animeItem.title
+        cell.listYearOutlet.text = String(animeItem.year)
+        if let urlString = URL(string: animeItem.posterPath) {
             cell.listImageOutlet.load(url:urlString)
         }
-        //cell.listGenreOutlet.text = bigList()[0].type
-
+        cell.listGenreOutlet.text = "\(animeItem.type)"
         return cell
     }
+}
     
 
     /*
@@ -93,7 +79,7 @@ class TableViewController: UITableViewController {
     }
     */
 
-}
+
 
 /*
  extension UIImageView {
