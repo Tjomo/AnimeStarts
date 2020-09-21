@@ -16,8 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         AnimeController.sharedController.buildList()
-        
-            var listAnimeItem = 0
+        AnimeController2.sharedController.buildListList()
         return true
     }
 

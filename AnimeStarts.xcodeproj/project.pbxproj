@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A203C0952515ABEC005AEFB3 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A203C0942515ABEC005AEFB3 /* TableViewController.swift */; };
 		A203C0972515BC1A005AEFB3 /* AnimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A203C0962515BC1A005AEFB3 /* AnimeTableViewCell.swift */; };
+		A203C0992518B5F1005AEFB3 /* ViewControllerDETAIL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A203C0982518B5F1005AEFB3 /* ViewControllerDETAIL.swift */; };
 		A21A6E71250FA6BC00931BEE /* AnimeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21A6E70250FA6BC00931BEE /* AnimeRequest.swift */; };
 		A21A6E73250FAF8900931BEE /* AnimeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21A6E72250FAF8900931BEE /* AnimeCollection.swift */; };
 		A2233A3D24D871F100C8BFDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2233A3C24D871F100C8BFDD /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		A203C0942515ABEC005AEFB3 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		A203C0962515BC1A005AEFB3 /* AnimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeTableViewCell.swift; sourceTree = "<group>"; };
+		A203C0982518B5F1005AEFB3 /* ViewControllerDETAIL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDETAIL.swift; sourceTree = "<group>"; };
 		A21A6E70250FA6BC00931BEE /* AnimeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeRequest.swift; sourceTree = "<group>"; };
 		A21A6E72250FAF8900931BEE /* AnimeCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCollection.swift; sourceTree = "<group>"; };
 		A2233A3924D871F100C8BFDD /* AnimeStarts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeStarts.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +74,7 @@
 				A203C0942515ABEC005AEFB3 /* TableViewController.swift */,
 				A203C0962515BC1A005AEFB3 /* AnimeTableViewCell.swift */,
 				A2233A4224D871F100C8BFDD /* Main.storyboard */,
+				A203C0982518B5F1005AEFB3 /* ViewControllerDETAIL.swift */,
 				A2233A4524D871F200C8BFDD /* Assets.xcassets */,
 				A2233A4724D871F200C8BFDD /* LaunchScreen.storyboard */,
 				A2233A4A24D871F200C8BFDD /* Info.plist */,
@@ -157,6 +160,7 @@
 				A21A6E73250FAF8900931BEE /* AnimeCollection.swift in Sources */,
 				A2233A3D24D871F100C8BFDD /* AppDelegate.swift in Sources */,
 				A2233A3F24D871F100C8BFDD /* SceneDelegate.swift in Sources */,
+				A203C0992518B5F1005AEFB3 /* ViewControllerDETAIL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

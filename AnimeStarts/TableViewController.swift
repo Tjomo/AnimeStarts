@@ -12,23 +12,33 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        
+        
+        
     }
         //OUTLETS
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AnimeController.sharedController.animes.count
+        return (AnimeController2.sharedController.animeList.count - 1)
 //        return bigList().count
     }
+    
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnimeCell", for: indexPath) as! AnimeTableViewCell
         // Configure the cell...
-        let animeItem = AnimeController.sharedController.animes[indexPath.row]
+        let animeItem = AnimeController2.sharedController.animeList[indexPath.row]
         cell.listTitleOutlet.text = animeItem.title
         cell.listYearOutlet.text = String(animeItem.year)
         if let urlString = URL(string: animeItem.posterPath) {
             cell.listImageOutlet.load(url:urlString)
         }
         cell.listGenreOutlet.text = "\(animeItem.type)"
+        
+        
         return cell
     }
 }

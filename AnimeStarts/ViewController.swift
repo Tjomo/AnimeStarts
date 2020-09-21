@@ -12,7 +12,9 @@ class ViewController: UIViewController {
 
     var listAnimeItem:Int = 0
 
-
+    var lastViewAnime = AnimeController.sharedController.animes[9]
+    
+    
 
     
     @IBOutlet weak var selecterOutlet: UISegmentedControl!
@@ -35,11 +37,11 @@ class ViewController: UIViewController {
     
     func REFRESHU() {
         //make sure no crash
-        if listAnimeItem > (AnimeController.sharedController.animes.count - 1)  {
+        if listAnimeItem > (AnimeController.sharedController.animes.count - 2)  {
             listAnimeItem = 0
         }
         if listAnimeItem < 0  {
-            listAnimeItem = AnimeController.sharedController.animes.count - 1
+            listAnimeItem = AnimeController.sharedController.animes.count - 2
         }
         
         
@@ -50,29 +52,148 @@ class ViewController: UIViewController {
             titleOutlet.text = AnimeController.sharedController.animes[listAnimeItem].title
             yearOutlet.text = String(AnimeController.sharedController.animes[listAnimeItem].year)
             uiBarOutlet.title = AnimeController.sharedController.animes[listAnimeItem].title
-            
+        descriptionOutlet.text = String(AnimeController.sharedController.animes[listAnimeItem].description)
         
+        //LOADDDDDDDDDDDD
+        //AnimeController.sharedController.saveAnime()
+        
+        //ANIMATE
+        selecterOutlet.selectedSegmentIndex = 0
+        
+        
+        
+        UIView.animate(withDuration: 0.7) {
+           // self.yearOutlet.transform = CGAffineTransform(scaleX: 1, y: 1)
+            //self.yearOutlet.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+            self.yearOutlet.alpha = 1
+            self.titleOutlet.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.titleOutlet.alpha = 1
+            self.imageOutlet.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.imageOutlet.transform = CGAffineTransform(rotationAngle: 0)
+            self.imageOutlet.alpha = 1
+            self.descriptionOutlet.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.descriptionOutlet.alpha = 1
+            
+        }
+        UIView.animate(withDuration: 1.2) {
+            self.selecterOutlet.alpha = 1
+            
+        }
+        UIView.animate(withDuration: 3) {
+            self.yearOutlet.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.yearOutlet.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+        }
+        
+
+ 
     }
     
+       func REFRESHU2() {
+        while AnimeController.sharedController.animes.count > 0 {
+            AnimeController.sharedController.animes.remove(at: 0)
+        }
+        AnimeController.sharedController.buildList()
+        listAnimeItem = 0
+        
+        //make sure no crash
+        if listAnimeItem > (AnimeController.sharedController.animes.count - 2)  {
+            listAnimeItem = 0
+        }
+        if listAnimeItem < 0  {
+            listAnimeItem = AnimeController.sharedController.animes.count - 2
+        }
+        
+        
+            //reload data
+             if let urlString = URL(string: AnimeController.sharedController.animes[listAnimeItem].posterPath) {
+              imageOutlet.load(url:urlString)
+            }
+            titleOutlet.text = AnimeController.sharedController.animes[listAnimeItem].title
+            yearOutlet.text = String(AnimeController.sharedController.animes[listAnimeItem].year)
+            uiBarOutlet.title = AnimeController.sharedController.animes[listAnimeItem].title
+        descriptionOutlet.text = String(AnimeController.sharedController.animes[listAnimeItem].description)
+        
+        selecterOutlet.selectedSegmentIndex = 0
+        
+        UIView.animate(withDuration: 1) {
+           // self.yearOutlet.transform = CGAffineTransform(scaleX: 1, y: 1)
+            //self.yearOutlet.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+            self.yearOutlet.alpha = 1
+            self.titleOutlet.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.titleOutlet.alpha = 1
+            self.imageOutlet.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.imageOutlet.transform = CGAffineTransform(rotationAngle: 0)
+            self.imageOutlet.alpha = 1
+            self.descriptionOutlet.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.descriptionOutlet.alpha = 1
+            
+        }
+        UIView.animate(withDuration: 1.2) {
+            self.selecterOutlet.alpha = 1
+            
+        }
+        UIView.animate(withDuration: 3) {
+            self.yearOutlet.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.yearOutlet.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+        }
+        
+
+    
+       }
     
     @IBAction func rightButtonCommit(_ sender: Any) {
+        UIView.animate(withDuration: 0.7, animations:{
+            self.yearOutlet.transform = CGAffineTransform(scaleX: 10000, y: 10000)
+            self.yearOutlet.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+            self.yearOutlet.alpha = 0
+            self.titleOutlet.transform = CGAffineTransform(scaleX: 10000, y: 1)
+            self.titleOutlet.alpha = 0
+            self.imageOutlet.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.imageOutlet.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+            self.imageOutlet.alpha = -30
+            self.descriptionOutlet.transform = CGAffineTransform(scaleX: 1, y: 10000)
+            self.descriptionOutlet.alpha = 0
+            self.selecterOutlet.alpha = 0
+            
+        })
+        lastViewAnime = AnimeController.sharedController.animes[listAnimeItem]
+        if AnimeController.sharedController.animes[listAnimeItem].type != .lewd {
+        if selecterOutlet.selectedSegmentIndex == 0 {
+            listAnimeItem += 3
+        }
+        if selecterOutlet.selectedSegmentIndex == 1 {
+            AnimeController.sharedController.animes.remove(at: listAnimeItem)
+        }
+        if selecterOutlet.selectedSegmentIndex == 2 {
+            AnimeController.sharedController.animes.remove(at: listAnimeItem)
+            listAnimeItem += 1
+        }
+        }
 
-        
-        
-                listAnimeItem += 1
 
-        
-        
         REFRESHU()
     }
     
     
     @IBAction func leftButtonCommit(_ sender: Any) {
-                listAnimeItem -= 1
+        listAnimeItem = lastViewAnime.id
 
+        UIView.animate(withDuration: 0.9, animations:{
+            self.yearOutlet.transform = CGAffineTransform(scaleX: 250, y: 250)
+            self.yearOutlet.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+            self.yearOutlet.alpha = 0
+            self.titleOutlet.transform = CGAffineTransform(scaleX: 250, y: 1)
+            self.titleOutlet.alpha = 0
+            self.imageOutlet.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.imageOutlet.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+            self.imageOutlet.alpha = -30
+            self.descriptionOutlet.transform = CGAffineTransform(scaleX: 1, y: 250)
+            self.descriptionOutlet.alpha = 0
+            self.selecterOutlet.alpha = 0
+            
+        })
         
-        
-        REFRESHU()
+        REFRESHU2()
     }
 
     
@@ -86,6 +207,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        
         
 navigationController?.navigationBar.barTintColor = UIColor.yellow
 
@@ -97,6 +220,7 @@ navigationController?.navigationBar.barTintColor = UIColor.yellow
         yearOutlet.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
         titleOutlet.text = AnimeController.sharedController.animes[listAnimeItem].title
         yearOutlet.text = String(AnimeController.sharedController.animes[listAnimeItem].year)
+        descriptionOutlet.text = String(AnimeController.sharedController.animes[listAnimeItem].description)
         uiBarOutlet.title = AnimeController.sharedController.animes[listAnimeItem].title
 
         
